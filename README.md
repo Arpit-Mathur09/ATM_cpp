@@ -5,7 +5,6 @@ use database file to access and add Account no. password & Balance
 - - B-Balance //balance should be integer
 > IMPORTANT
 - Less effiecinet
-due to copying the whole data the rewriting it during withdraw and deposite
-it become less efficient  
+due to copying the whole data the rewriting it during withdraw and deposite  
 - NO GUI
 
