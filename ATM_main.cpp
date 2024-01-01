@@ -1,21 +1,18 @@
 ///@brief ATM using fstream 
-/*    DRAWBACk 
-1. less efficient 
-2. NO GUI
-*/
+
 #include <iostream>
 #include "database.h" //file handling
 #include "ATM.h"
 
-using namespace std;
+//using namespace std;
 
 int main()
 {
 here:
     displayWELCOME();
     int in_accNo; // input accountNo
-    cout << "Enter your Account number: ";
-    cin >> in_accNo;
+    std::cout << "Enter your Account number: ";
+    std::cin >> in_accNo;
 //checking the INPUT ACCOUNT NO.
     try
     {
@@ -36,14 +33,14 @@ here:
     {
         ATMMENU(); // ATM menu display
 
-        string in_pass; // input password
-        cout << endl;
+        std::string in_pass; // input password
+        std::cout << std::endl;
 
         //Menu
         int choice; // input choice
-        cout << "Enter your choice: ";
-        cin >> choice;
-        cout << endl;
+        std::cout << "Enter your choice: ";
+        std::cin >> choice;
+        std::cout << std::endl;
         
         switch (choice)
         {
@@ -56,7 +53,7 @@ here:
                 if (authentication(in_accNo, in_pass))
                 {
                     system("color");
-                    cout << "Your current balance is: " << checkBalance(in_accNo) << endl;
+                    std::cout << "Your current balance is: " << checkBalance(in_accNo) << std::endl;
                     delay(5000);
                 }
                 else
@@ -83,17 +80,17 @@ here:
                     // check balance from databse
                     double bal = checkBalance(in_accNo);
                     double deposite = 0;
-                    cout << "Enter the amount to deposite: ";
-                    cin >> deposite;
-                    cout << endl;
+                    std::cout << "Enter the amount to deposite: ";
+                    std::cin >> deposite;
+                    std::cout << std::endl;
                     deposite += bal;
                     updateDatabase(in_accNo, in_pass, deposite);
                     // updated bal;
                     system("cls");
                     banner();
-                    cout << "\v\v\t\t SUCCESS\n";
+                    std::cout << "\v\v\t\t SUCCESS\n";
                     system("color 27");
-                    cout << "\tYour current balance is: " << checkBalance(in_accNo) << endl;
+                    std::cout << "\tYour current balance is: " << checkBalance(in_accNo) << std::endl;
                     delay(5000);
                 }
                 else
@@ -122,8 +119,8 @@ here:
                     double balance = checkBalance(in_accNo);
                     double withdraw;
                 tryagain:
-                    cout << "Enter the amount to withdraw: ";
-                    cin >> withdraw;
+                    std::cout << "Enter the amount to withdraw: ";
+                    std::cin >> withdraw;
                     try
                     {
                         try
@@ -148,10 +145,10 @@ here:
                         }
                         else
                         {
-                            cout << endl;
+                            std::cout << std::endl;
                             balance -= withdraw;
                             updateDatabase(in_accNo, in_pass, balance);
-                            cout << "Your current balance is: " << checkBalance(in_accNo) << endl;
+                            std::cout << "Your current balance is: " << checkBalance(in_accNo) << std::endl;
                             delay(5000);
                         }
                     }

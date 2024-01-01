@@ -16,19 +16,19 @@
 #include <fstream>
 #include <iostream>
 #include <conio.h>
-using namespace std;
+
 void displayWELCOME()
 {
 
     system("cls");
     system("color 06");
-    cout << "\n***********************************************\n"
+    std::cout << "\n***********************************************\n"
          << "\tWELCOME TO THE NALA BANK ATM\n"
          << "***********************************************\n";
 }
 void banner()
 {
-    cout << "\n***********************************************\n"
+    std::cout << "\n***********************************************\n"
          << "\t    THE NALA BANK ATM \n"
          << "***********************************************\n";
 }
@@ -36,7 +36,7 @@ void ATMMENU()
 {
     system("cls");
     system("color 02");
-    cout << "\n***********************************************\n"
+    std::cout << "\n***********************************************\n"
          << "\t    THE NALA BANK ATM\n"
          << "***********************************************\n"
          << "\tCHOOSE FROM THE FOLLOWING \n"
@@ -53,13 +53,13 @@ void ATMMENU()
 /// @return
 /*
 1.open file "database.txt"
-2.read each line of file(stored as string in text variable below)
+2.read each line of file(stored as std::string in text variable below)
 3.match the givenAccountNo and realaccountNo return 1 if true
 */
 bool auth_Account(int givenAccountNo)
 {
-    string text;
-    ifstream acc_check("../database.txt");
+    std::string text;
+    std::ifstream acc_check("../database.txt");
     bool flag = 0;
     if (acc_check.is_open())
     {
@@ -90,20 +90,20 @@ bool auth_Account(int givenAccountNo)
 and realPassword  return 1 if true
 */
 
-bool authentication(int givenAccountNo, string givenPassword)
+bool authentication(int givenAccountNo, std::string givenPassword)
 { // password as well as account no.
-    string text;
-    ifstream pass_check("../database.txt");
+    std::string text;
+    std::ifstream pass_check("../database.txt");
     bool flag = 0;
     if (pass_check.is_open())
     {
-        while (getline(pass_check, text))
+        while (std::getline(pass_check, text))
         {
             int endfirst = text.find_first_of(' ', 0); // first _ char
             int realaccountNo = stoi(text.substr(1, endfirst - 1));
 
             int endsecond = text.find_first_of(' ', endfirst + 1); // second
-            string realPassword = text.substr(endfirst + 2, endsecond - (endfirst + 2));
+            std::string realPassword = text.substr(endfirst + 2, endsecond - (endfirst + 2));
 
             if ((realaccountNo == givenAccountNo) && (realPassword.compare(givenPassword) == 0))
             {
@@ -116,7 +116,7 @@ bool authentication(int givenAccountNo, string givenPassword)
         return flag;
     }
 
-    cout << "file does not open in authentication\n";
+    std::cout << "file does not open in authentication\n";
     return flag;
 }
 /// @brief simple delay function
@@ -132,25 +132,25 @@ void delay(unsigned long long milisec)
 
 /// @brief Password filled using conio.h
 /// @param in_pass 
-void hiddenPassword(string &in_pass)
+void hiddenPassword(std::string &in_pass)
 {
     char ch;
-    cout << "Enter Your Password: ";
+    std::cout << "Enter Your Password: ";
     ch = getch();  // does not print any thing in console
     while (ch != 13)
     {
         if (ch != 8)
         {
             in_pass.push_back(ch);
-            cout << "*"; // we are deliberately printing *
+            std::cout << "*"; // we are deliberately printing *
         }
         else if(ch==8){ //ASCII of backspace 
         in_pass.pop_back();
-        cout<<"\b \b";//rub the character behind the cursor.
+        std::cout<<"\b \b";//rub the character behind the cursor.
         }
         ch = getch();
     }
-    cout << endl;
+    std::cout << std::endl;
     
     
 }
