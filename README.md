@@ -7,6 +7,7 @@ use database file to access and add Account no. password & Balance
       >  remember don't use Same user name or password  
 > IMPORTANT 
 - Less effiecinet
-    due to copying the whole data the rewriting it during withdraw and deposite
-
+due to copying the whole data the rewriting it during withdraw and deposite
+it become less efficient  
+- NO GUI
 
