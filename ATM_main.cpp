@@ -4,8 +4,6 @@
 #include "database.h" //file handling
 #include "ATM.h"
 
-//using namespace std;
-
 int main()
 {
 here:
