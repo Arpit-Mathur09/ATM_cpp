@@ -4,10 +4,9 @@ use database file to access and add Account no. password & Balance
 - - P-password // password can be string
 - - B-Balance //balance should be integer
     --> Ex. you can add new user A(account_no) P(password) B(Balance) 
-      >  remember don't use Same user name or password  
+      >  remember don't use Same AccountNo or password  
 > IMPORTANT 
 - Less effiecinet
 due to copying the whole data the rewriting it during withdraw and deposite
 it become less efficient  
-- NO GUI
 
